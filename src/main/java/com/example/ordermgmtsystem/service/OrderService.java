@@ -2,7 +2,7 @@ package com.example.ordermgmtsystem.service;
 
 import com.example.ordermgmtsystem.entity.Order;
 import com.example.ordermgmtsystem.entity.Product;
-import com.example.ordermgmtsystem.enums.OrderStatus;
+import com.example.ordermgmtsystem.entity.enums.OrderStatus;
 import com.example.ordermgmtsystem.repository.OrderRepository;
 import com.example.ordermgmtsystem.repository.ProductRepository;
 import org.springframework.stereotype.Service;
@@ -28,7 +28,7 @@ public class OrderService {
         order.setProducts(products);
 
         order.setStatus(OrderStatus.NEW);  // Set the initial status as NEW
-        order.setTotalPrice(order.calculateTotalPrice());  // Calculate the total price
+        order.setTotalPrice(order.recalculateTotalPrice());  // Calculate the total price
         return orderRepository.save(order);
     }
 

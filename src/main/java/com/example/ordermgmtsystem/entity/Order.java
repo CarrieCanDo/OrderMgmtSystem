@@ -5,9 +5,10 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.ordermgmtsystem.enums.OrderStatus;
+import com.example.ordermgmtsystem.entity.enums.OrderStatus;
 
 @Entity
+@Table(name="customer_order")
 public class Order {
 
     @Id
@@ -89,13 +90,13 @@ public class Order {
 
     public void setProducts(List<Product> products) {
         this.products = products;
-        this.totalPrice = calculateTotalPrice(); // Update total price when products are set
+        this.totalPrice = recalculateTotalPrice(); // Update total price when products are set
     }
 
     // Utility Methods
 
     // Method to calculate total price based on the products in the order
-    public double calculateTotalPrice() {
+    public double recalculateTotalPrice() {
         return products.stream()
                 .mapToDouble(Product::getPrice)
                 .sum();
@@ -104,12 +105,12 @@ public class Order {
     // Method to add a product to the order
     public void addProduct(Product product) {
         this.products.add(product);
-        this.totalPrice = calculateTotalPrice();  // Recalculate the total price when a new product is added
+        this.totalPrice = recalculateTotalPrice();  // Recalculate the total price when a new product is added
     }
 
     // Method to remove a product from the order
     public void removeProduct(Product product) {
         this.products.remove(product);
-        this.totalPrice = calculateTotalPrice();  // Recalculate the total price when a product is removed
+        this.totalPrice = recalculateTotalPrice();  // Recalculate the total price when a product is removed
     }
 }

@@ -1,6 +1,3 @@
-Here’s a concise and effective `README.md` for your project based on the provided instructions:
-
----
 
 # Order Management System
 
@@ -85,7 +82,3 @@ The application uses an in-memory **H2 database**. You can access the H2 console
 - **JDBC URL:** `jdbc:h2:mem:testdb`
 - **Username:** `sa`
 - **Password:** (leave blank)
-
----
-
-This documentation should be concise yet informative, allowing users to understand the project, its development approach, and how to use it. Let me know if you'd like to add any more details!

@@ -2,7 +2,7 @@ package com.example.ordermgmtsystem.service;
 
 import com.example.ordermgmtsystem.entity.Order;
 import com.example.ordermgmtsystem.entity.Product;
-import com.example.ordermgmtsystem.enums.OrderStatus;
+import com.example.ordermgmtsystem.entity.enums.OrderStatus;
 import com.example.ordermgmtsystem.repository.OrderRepository;
 import com.example.ordermgmtsystem.repository.ProductRepository;
 import org.junit.jupiter.api.BeforeEach;
