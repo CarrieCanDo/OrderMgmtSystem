@@ -8,6 +8,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -75,5 +77,29 @@ class ProductServiceTest {
         productService.deleteProduct(1L);
 
         verify(productRepository, times(1)).deleteById(1L);
+    }
+
+    @Test
+    void testGetAllProducts() {
+        // Create a second product to simulate multiple products
+        Product product2 = new Product();
+        product2.setId(2L);
+        product2.setName("Cake");
+        product2.setPrice(8.99);
+
+        List<Product> productList = Arrays.asList(product, product2);
+
+        when(productRepository.findAll()).thenReturn(productList);
+
+        // Call the service method to get all products
+        List<Product> products = productService.getAllProducts();
+
+        // Verify the results
+        assertNotNull(products);
+        assertEquals(2, products.size());
+        assertEquals("Ice Cream", products.get(0).getName());
+        assertEquals("Cake", products.get(1).getName());
+
+        verify(productRepository, times(1)).findAll();
     }
 }

@@ -11,11 +11,16 @@ public class Product {
 
     private String name;
 
-    private double price;
-
     private String description;
 
+    private double price;
+
+    private String category;
+
+    private int stock;
+
     // Getters and Setters
+
     public Long getId() {
         return id;
     }
@@ -32,6 +37,14 @@ public class Product {
         this.name = name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public double getPrice() {
         return price;
     }
@@ -40,11 +53,19 @@ public class Product {
         this.price = price;
     }
 
-    public String getDescription() {
-        return description;
+    public String getCategory() {
+        return category;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 }
